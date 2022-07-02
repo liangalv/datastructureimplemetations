@@ -3,6 +3,7 @@ public class queue {
     //let's implement this using a singly linked list
     Node head = null;
     Node tail = null; 
+    int size;
     
     //create an empty Queue
     public queue(){}
@@ -13,7 +14,7 @@ public class queue {
     public void enqueue(T element){
         //we have to manage the pointer mangement while appending
         Node newNode = new Node(element);
-        if this.isEmpty(){
+        if (this.isEmpty()){
             this.head = newNode;
             this.tail = newNode;
         }else{
@@ -21,6 +22,7 @@ public class queue {
             this.tail.next = newNode;
             this.tail = newNode;
         }
+        this.size++;
     }
     public T dequeue(){
         //we don't need to check whether or not list is empty
@@ -33,6 +35,7 @@ public class queue {
            this.tail = null;
         }
         this.head = this.head.next;
+        this.size--;
         return temp.val;
     }
     public boolean isEmpty(){
